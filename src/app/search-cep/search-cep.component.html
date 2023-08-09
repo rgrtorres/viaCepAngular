@@ -1,0 +1,57 @@
+<h3>Search CEP</h3>
+
+<section>
+    <div class="bar-title" (click)="openClose('isVisibleSearchCep')">
+        Search CEP
+        <span class="bi bi-arrow-down-circle-fill" [hidden]="isVisibleSearchCep"></span>
+        <span class="bi bi-arrow-up-circle-fill" [hidden]="!isVisibleSearchCep"></span>
+    </div>
+    <div [hidden]="isVisibleSearchCep">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Insert CEP</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="text" class="form-control" [(ngModel)]="cep"></td>
+                    <td><button class="btn btn-dark" (click)="searchCep()">Search</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section>
+    <div class="bar-title" (click)="openClose('isVisibleAddress')">
+        Information
+        <span class="bi bi-arrow-down-circle-fill" [hidden]="isVisibleAddress"></span>
+        <span class="bi bi-arrow-up-circle-fill" [hidden]="!isVisibleAddress"></span>
+    </div>
+    <div [hidden]="isVisibleAddress" *ngIf="lstCep">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Address</th>
+                    <th scope="col">Complement</th>
+                    <th scope="col">Distric</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Federative Unit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{lstCep.logradouro}}</td>
+                    <td>{{lstCep.complemento}}</td>
+                    <td>{{lstCep.bairro}}</td>
+                    <td>{{lstCep.localidade}}</td>
+                    <td>{{lstCep.uf}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
